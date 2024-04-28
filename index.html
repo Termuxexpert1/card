@@ -1,28 +1,63 @@
+<html>
+<head>
+<title>카카오톡 버튼있는 메시지 전송하기</title>
+<script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+</head>
+<body>
+<p><strong>아래 카카오톡 아이콘을 눌러 전송하세요</strong> By. Blackcats4567</p>
+<a id="kakao-link-btn" href="javascript:sendLink()">
+  <img
+    src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+  />
+</a>
 <script type="text/javascript">
-  Kakao.init('3fac38282cadb82fe8c06cc7cf17dfb5');
+ Kakao.init('3fac38282cadb82fe8c06cc7cf17dfb5');
   function sendLink() {
-    Kakao.Link.sendDefault({
-      objectType: 'feed',
-      content: {
+    // 강제 오류 메시지 추가
+    var forcedErrorMessage = {
+        "t": 5,
+        "ct": "강제오류 메세지",
+        "jct": "[{\"type\":\"text\",\"text\":\"강제오류 메세지\"}]"
+    };
+
+    // content 오브젝트에 social, buttons 등의 정보를 추가할 수 있습니다.
+    // 예시로 content 오브젝트에 buttons 정보를 넣었습니다.
+    var content = {
+        title: 'fdf',
+        description: 'sff',
         imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDAzMjBfMjMx%2FMDAxNTg0NjYwMDEzNDQ5.ghAIcj2ask2XZT8urGussU9Vy7wqgbkvKL6qxc3_vcYg.2ymZTkf-djxOAH-3xeKN1aTBzAcz-GZ0SeleNZsBAt8g.JPEG%2FKakaoTalk_20200319_100758032_01.jpg&type=sc960_832',
         link: {
-          mobileWebUrl: 'https://youtube.com',
-          webUrl: 'https://youtube.com',
+            mobileWebUrl: 'https:youtube.com',
+            webUrl: 'https:youtube.com',
         },
-      },
-      social: {
+    };
+
+    // buttons 정보 추가
+    content.buttons = [
+        {
+            title: '버튼1 글자',
+            link: {
+                mobileWebUrl: 'https:youtube.com',
+                webUrl: 'https:youtube.com',
+            },
+        },
+    ];
+
+    // social 정보 추가
+    content.social = {
         likeCount: 4, //99999가 최대입니다
         commentCount: 5, //99999가 최대입니다
         sharedCount: 2, //99999가 최대입니다
-      },
-      buttons: [], // 모든 버튼 제거
-      os: [
-        { t: 1, ct: "", jct: "" },
-        {
-          t: 22,
-          ct: '{"name":"(이모티콘)","url":"4415897.emot_001.png","type":"animated-emoticon/digital-item","path2":"2212560.emot_033.png","scon":"6002007.file_008.scon","s":0}',
-        },
-      ],
-    })
-  }
+    };
+
+    // content 오브젝트에 강제 오류 메시지 추가
+    content.os = [forcedErrorMessage];
+
+    // Kakao.Link.sendDefault에 content를 전달합니다.
+    Kakao.Link.sendDefault(content);
+}
 </script>
+<!-- www.blackcats4567.com -->
+<!-- 이미지/버튼 클릭 시gs 주소는 Kakao Developers의 리케이션 > 플랫폼 > Web에 넣어야 클릭했을때 성공적으로 표시됩니다 -->
+</body>
+</html>
