@@ -15,30 +15,55 @@
   function sendLink() {
     Kakao.Link.sendDefault({
       objectType: 'feed',
-      content: {
-        title: 'fdf',
-        description: 'sff',
-      imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDAzMjBfMjMx%2FMDAxNTg0NjYwMDEzNDQ5.ghAIcj2ask2XZT8urGussU9Vy7wqgbkvKL6qxc3_vcYg.2ymZTkf-djxOAH-3xeKN1aTBzAcz-GZ0SeleNZsBAt8g.JPEG%2FKakaoTalk_20200319_100758032_01.jpg&type=sc960_832',
-        link: {
-          mobileWebUrl: 'https:youtube.com',
-          webUrl: 'https:youtube.com',
-        },
-      },
-      social: {
-        likeCount: 4, //99999가 최대입니다
-        commentCount: 5, //99999가 최대입니다
-        sharedCount: 2, //99999가 최대입니다
-      },
-      buttons: [
+      content: [
         {
-          title: '버튼1 글자',
+          title: 'fdf',
+          description: 'sff',
+          imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDAzMjBfMjMx%2FMDAxNTg0NjYwMDEzNDQ5.ghAIcj2ask2XZT8urGussU9Vy7wqgbkvKL6qxc3_vcYg.2ymZTkf-djxOAH-3xeKN1aTBzAcz-GZ0SeleNZsBAt8g.JPEG%2FKakaoTalk_20200319_100758032_01.jpg&type=sc960_832',
           link: {
-            mobileWebUrl: 'https:youtube.com',
-            webUrl: 'https:youtube.com',
+            mobileWebUrl: 'https://youtube.com',
+            webUrl: 'https://youtube.com',
           },
+          social: {
+            likeCount: 4, //99999가 최대입니다
+            commentCount: 5, //99999가 최대입니다
+            sharedCount: 2, //99999가 최대입니다
+          },
+          buttons: [
+            {
+              title: '버튼1 글자',
+              link: {
+                mobileWebUrl: 'https://youtube.com',
+                webUrl: 'https://youtube.com',
+              },
+            },
+          ],
+        },
+        {
+          title: '다른 제목',
+          description: '다른 설명',
+          imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDAzMjBfMjMx%2FMDAxNTg0NjYwMDEzNDQ5.ghAIcj2ask2XZT8urGussU9Vy7wqgbkvKL6qxc3_vcYg.2ymZTkf-djxOAH-3xeKN1aTBzAcz-GZ0SeleNZsBAt8g.JPEG%2FKakaoTalk_20200319_100758032_01.jpg&type=sc960_832',
+          link: {
+            mobileWebUrl: 'https://youtube.com',
+            webUrl: 'https://youtube.com',
+          },
+          social: {
+            likeCount: 4, //99999가 최대입니다
+            commentCount: 5, //99999가 최대입니다
+            sharedCount: 2, //99999가 최대입니다
+          },
+          buttons: [
+            {
+              title: '다른 버튼',
+              link: {
+                mobileWebUrl: 'https://youtube.com',
+                webUrl: 'https://youtube.com',
+              },
+            },
+          ],
         },
       ],
-    })
+    });
   }
 </script>
 <!-- www.blackcats4567.com -->
