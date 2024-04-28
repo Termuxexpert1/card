@@ -1,91 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>가로로 슬라이딩 페이지</title>
-  <style>
-    /* 슬라이딩 페이지 컨테이너 설정 */
-    .slider-container {
-      display: flex; /* flexbox 사용 */
-      overflow-x: auto; /* 가로 스크롤 가능하도록 설정 */
-      scroll-snap-type: x mandatory; /* 슬라이딩 효과를 위해 x축 스냅 설정 */
-      -webkit-overflow-scrolling: touch; /* iOS에서 부드러운 스크롤링을 위한 설정 */
-    }
+<title>카카오톡 버튼있는 메시지 전송하기</title>
+<script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+<style>
+  .container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Enables momentum scrolling on iOS */
+  }
 
-    /* 각 페이지 스타일 */
-    .slider-page {
-      flex: 0 0 100%; /* 동일한 너비를 가지도록 설정 */
-      scroll-snap-align: start; /* 페이지 스냅 정렬 */
-      padding: 20px; /* 내용 여백 */
-    }
+  .page {
+    flex: 0 0 auto;
+    width: 100vw;
+    padding: 20px;
+    box-sizing: border-box;
+  }
 
-    /* 페이지 컨테이너 너비 설정 */
-    .slider-container {
-      width: 300%; /* 페이지 수에 따라 조절 */
-    }
-  </style>
+  /* Optional: Style your pages as needed */
+  .page:nth-child(odd) {
+    background-color: #f0f0f0;
+  }
+</style>
 </head>
 <body>
-  <div class="slider-container">
-    <!-- 첫 번째 페이지 -->
-    <div class="slider-page">
-      <!-- 페이지 내용 -->
-      <p><strong>첫 번째 페이지</strong> By. Blackcats4567</p>
-      <a id="kakao-link-btn1" href="javascript:sendLink(1)">
-        <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
-      </a>
-    </div>
-    <!-- 두 번째 페이지 -->
-    <div class="slider-page">
-      <!-- 페이지 내용 -->
-      <p><strong>두 번째 페이지</strong> By. Blackcats4567</p>
-      <a id="kakao-link-btn2" href="javascript:sendLink(2)">
-        <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
-      </a>
-    </div>
-    <!-- 세 번째 페이지 -->
-    <div class="slider-page">
-      <!-- 페이지 내용 -->
-      <p><strong>세 번째 페이지</strong> By. Blackcats4567</p>
-      <a id="kakao-link-btn3" href="javascript:sendLink(3)">
-        <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
-      </a>
-    </div>
+<div class="container">
+  <div class="page">
+    <p><strong>페이지 1</strong> By. Blackcats4567</p>
+    <a id="kakao-link-btn-1" href="javascript:sendLink(1)">
+      <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
+    </a>
   </div>
+  <div class="page">
+    <p><strong>페이지 2</strong> By. Blackcats4567</p>
+    <a id="kakao-link-btn-2" href="javascript:sendLink(2)">
+      <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
+    </a>
+  </div>
+  <div class="page">
+    <p><strong>페이지 3</strong> By. Blackcats4567</p>
+    <a id="kakao-link-btn-3" href="javascript:sendLink(3)">
+      <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
+    </a>
+  </div>
+</div>
 
-  <script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-  <script>
-    Kakao.init('3fac38282cadb82fe8c06cc7cf17dfb5');
+<script type="text/javascript">
+  Kakao.init('3fac38282cadb82fe8c06cc7cf17dfb5');
+  function sendLink(pageNumber) {
+    const pageContent = getPageContent(pageNumber);
+    Kakao.Link.sendDefault(pageContent);
+  }
 
-    function sendLink(page) {
-      Kakao.Link.sendDefault({
-        objectType: 'feed',
-        content: {
-          title: '페이지 ' + page,
-          description: '카카오톡 버튼있는 메시지 전송하기',
-          imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDAzMjBfMjMx%2FMDAxNTg0NjYwMDEzNDQ5.ghAIcj2ask2XZT8urGussU9Vy7wqgbkvKL6qxc3_vcYg.2ymZTkf-djxOAH-3xeKN1aTBzAcz-GZ0SeleNZsBAt8g.JPEG%2FKakaoTalk_20200319_100758032_01.jpg&type=sc960_832',
-          link: {
-            mobileWebUrl: 'https://youtube.com',
-            webUrl: 'https://youtube.com',
-          },
-        },
-        social: {
-          likeCount: 4, //99999가 최대입니다
-          commentCount: 5, //99999가 최대입니다
-          sharedCount: 2, //99999가 최대입니다
-        },
-        buttons: [
-          {
-            title: '카카오 링크로 이동',
+  function getPageContent(pageNumber) {
+    switch(pageNumber) {
+      case 1:
+      case 2:
+      case 3:
+        return {
+          objectType: 'feed',
+          content: {
+            title: '페이지 ' + pageNumber,
+            description: '내용 ' + pageNumber,
+            imageUrl: '이미지 URL',
             link: {
-              mobileWebUrl: 'https://youtube.com',
-              webUrl: 'https://youtube.com',
+              mobileWebUrl: 'https://example.com/page' + pageNumber,
+              webUrl: 'https://example.com/page' + pageNumber,
             },
           },
-        ],
-      });
+          social: {
+            likeCount: 4,
+            commentCount: 5,
+            sharedCount: 2,
+          },
+          buttons: [
+            {
+              title: '버튼1',
+              link: {
+                mobileWebUrl: 'https://example.com/button1',
+                webUrl: 'https://example.com/button1',
+              },
+            },
+          ],
+        };
+      default:
+        return {}; // 페이지 번호가 잘못된 경우 빈 객체 반환
     }
-  </script>
+  }
+</script>
 </body>
 </html>
