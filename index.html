@@ -1,52 +1,66 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>카카오톡 버튼있는 메시지 전송하기</title>
-  <script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-  <style>
-    body {
-      width: 10000px;
-      height: 10000px;
-    }
-  </style>
-</head>
-<body>
-  <p><strong>아래 카카오톡 아이콘을 눌러 전송하세요</strong> By. Blackcats4567</p>
-  <a id="kakao-link-btn" href="javascript:sendLink()">
-    <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
-  </a>
-  <script type="text/javascript">
-    Kakao.init('3fac38282cadb82fe8c06cc7cf17dfb5');
-    function sendLink() {
-      Kakao.Link.sendDefault({
-        objectType: 'feed',
-        content: {
-          title: 'fdf',
-          description: 'sff',
-          imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDAzMjBfMjMx%2FMDAxNTg0NjYwMDEzNDQ5.ghAIcj2ask2XZT8urGussU9Vy7wqgbkvKL6qxc3_vcYg.2ymZTkf-djxOAH-3xeKN1aTBzAcz-GZ0SeleNZsBAt8g.JPEG%2FKakaoTalk_20200319_100758032_01.jpg&type=sc960_832',
-          link: {
-            mobileWebUrl: 'https:youtube.com',
-            webUrl: 'https:youtube.com',
-          },
+<script type="text/javascript">
+  Kakao.init('3fac38282cadb82fe8c06cc7cf17dfb5');
+  function sendLink() {
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: 'fdf',
+        description: 'sff',
+        imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDAzMjBfMjMx%2FMDAxNTg0NjYwMDEzNDQ5.ghAIcj2ask2XZT8urGussU9Vy7wqgbkvKL6qxc3_vcYg.2ymZTkf-djxOAH-3xeKN1aTBzAcz-GZ0SeleNZsBAt8g.JPEG%2FKakaoTalk_20200319_100758032_01.jpg&type=sc960_832',
+        link: {
+          mobileWebUrl: 'https://youtube.com',
+          webUrl: 'https://youtube.com',
         },
-        social: {
-          likeCount: 4, //99999가 최대입니다
-          commentCount: 5, //99999가 최대입니다
-          sharedCount: 2, //99999가 최대입니다
+      },
+      social: {
+        likeCount: 4, //99999가 최대입니다
+        commentCount: 5, //99999가 최대입니다
+        sharedCount: 2, //99999가 최대입니다
+      },
+      buttons: [], // 사진 메시지 버튼을 모두 제거함
+      os: [
+        { t: 1, ct: "", jct: "" },
+        {
+          t: 4,
+          ct: '{"name":"(이모티콘)","path":"4412207.emot_001.webp","alt":"","itemType":"STICKER_ANI","xconVersion":-1,"width":0,"height":0,"type":""}',
         },
-        buttons: [
-          {
-            title: '버튼1 글자',
-            link: {
-              mobileWebUrl: 'https:youtube.com',
-              webUrl: 'https:youtube.com',
-            },
-          },
-        ],
-      })
-    }
-  </script>
-  <!-- www.blackcats4567.com -->
-  <!-- 이미지/버튼 클릭 시gs 주소는 Kakao Developers의 리케이션 > 플랫폼 > Web에 넣어야 클릭했을때 성공적으로 표시됩니다 -->
-</body>
-</html>
+        {
+          t: 4,
+          ct: '{"name":"(이모티콘)","path":"4412207.emot_007.webp","alt":"","itemType":"STICKER_ANI","xconVersion":-1,"width":0,"height":0,"type":""}',
+        },
+        {
+          t: 4,
+          ct: '{"name":"(이모티콘)","path":"4412207.emot_004.webp","alt":"","itemType":"STICKER_ANI","xconVersion":-1,"width":0,"height":0,"type":""}',
+        },
+        {
+          t: 4,
+          ct: '{"name":"(이모티콘)","path":"4412207.emot_005.webp","alt":"","itemType":"STICKER_ANI","xconVersion":-1,"width":0,"height":0,"type":""}',
+        },
+        {
+          t: 4,
+          ct: '{"name":"(이모티콘)","path":"4412207.emot_006.webp","alt":"","itemType":"STICKER_ANI","xconVersion":-1,"width":0,"height":0,"type":""}',
+        },
+        {
+          t: 4,
+          ct: '{"name":"(이모티콘)","path":"4412207.emot_004.webp","alt":"","itemType":"STICKER_ANI","xconVersion":-1,"width":0,"height":0,"type":""}',
+        },
+        {
+          t: 4,
+          ct: '{"name":"(이모티콘)","path":"4412207.emot_002.webp","alt":"","itemType":"STICKER_ANI","xconVersion":-1,"width":0,"height":0,"type":""}',
+        },
+        {
+          t: 4,
+          ct: '{"name":"(이모티콘)","path":"4412207.emot_002.webp","alt":"","itemType":"STICKER_ANI","xconVersion":-1,"width":0,"height":0,"type":""}',
+        },
+        {
+          t: 4,
+          ct: '{"name":"(이모티콘)","path":"4412207.emot_009.webp","alt":"","itemType":"STICKER_ANI","xconVersion":-1,"width":0,"height":0,"type":""}',
+        },
+        {
+          t: 4,
+          ct: '{"name":"(이모티콘)","path":"4412207.emot_005.webp","alt":"","itemType":"STICKER_ANI","xconVersion":-1,"width":0,"height":0,"type":""}',
+        },
+      ],
+    })
+  }
+</script>
