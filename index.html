@@ -1,40 +1,23 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>카카오톡 버튼있는 메시지 전송하기</title>
   <script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
   <style>
-    .container {
-      display: flex;
-    }
-    .page {
-      width: 50%; /* 각 페이지가 화면의 절반을 차지하도록 설정 */
+    body {
+      width: 10000px;
+      height: 10000px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="page">
-      <p><strong>첫 번째 페이지</strong></p>
-      <!-- 첫 번째 페이지 내용 -->
-      <p>Title: fdf</p>
-      <p>Description: sff</p>
-      <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDAzMjBfMjMx%2FMDAxNTg0NjYwMDEzNDQ5.ghAIcj2ask2XZT8urGussU9Vy7wqgbkvKL6qxc3_vcYg.2ymZTkf-djxOAH-3xeKN1aTBzAcz-GZ0SeleNZsBAt8g.JPEG%2FKakaoTalk_20200319_100758032_01.jpg&type=sc960_832" alt="이미지">
-      <a href="https://youtube.com">버튼1</a>
-    </div>
-    <div class="page">
-      <p><strong>두 번째 페이지</strong></p>
-      <!-- 두 번째 페이지 내용 -->
-      <p>Title: 다른 제목</p>
-      <p>Description: 다른 설명</p>
-      <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDAzMjBfMjMx%2FMDAxNTg0NjYwMDEzNDQ5.ghAIcj2ask2XZT8urGussU9Vy7wqgbkvKL6qxc3_vcYg.2ymZTkf-djxOAH-3xeKN1aTBzAcz-GZ0SeleNZsBAt8g.JPEG%2FKakaoTalk_20200319_100758032_01.jpg&type=sc960_832" alt="이미지">
-      <a href="https://youtube.com">다른 버튼</a>
-    </div>
-  </div>
-
+  <p><strong>아래 카카오톡 아이콘을 눌러 전송하세요</strong> By. Blackcats4567</p>
+  <a id="kakao-link-btn" href="javascript:sendLink()">
+    <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
+  </a>
   <script type="text/javascript">
     Kakao.init('3fac38282cadb82fe8c06cc7cf17dfb5');
     function sendLink() {
-      // 첫 번째 페이지 전송
       Kakao.Link.sendDefault({
         objectType: 'feed',
         content: {
@@ -60,35 +43,7 @@
             },
           },
         ],
-      });
-
-      // 두 번째 페이지 전송
-      Kakao.Link.sendDefault({
-        objectType: 'feed',
-        content: {
-          title: '다른 제목',
-          description: '다른 설명',
-          imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDAzMjBfMjMx%2FMDAxNTg0NjYwMDEzNDQ5.ghAIcj2ask2XZT8urGussU9Vy7wqgbkvKL6qxc3_vcYg.2ymZTkf-djxOAH-3xeKN1aTBzAcz-GZ0SeleNZsBAt8g.JPEG%2FKakaoTalk_20200319_100758032_01.jpg&type=sc960_832',
-          link: {
-            mobileWebUrl: 'https:youtube.com',
-            webUrl: 'https:youtube.com',
-          },
-        },
-        social: {
-          likeCount: 4, //99999가 최대입니다
-          commentCount: 5, //99999가 최대입니다
-          sharedCount: 2, //99999가 최대입니다
-        },
-        buttons: [
-          {
-            title: '다른 버튼',
-            link: {
-              mobileWebUrl: 'https:youtube.com',
-              webUrl: 'https:youtube.com',
-            },
-          },
-        ],
-      });
+      })
     }
   </script>
   <!-- www.blackcats4567.com -->
