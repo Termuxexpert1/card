@@ -1,55 +1,91 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>카카오톡 버튼있는 메시지 전송하기</title>
-<script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가로로 슬라이딩 페이지</title>
+  <style>
+    /* 슬라이딩 페이지 컨테이너 설정 */
+    .slider-container {
+      display: flex; /* flexbox 사용 */
+      overflow-x: auto; /* 가로 스크롤 가능하도록 설정 */
+      scroll-snap-type: x mandatory; /* 슬라이딩 효과를 위해 x축 스냅 설정 */
+      -webkit-overflow-scrolling: touch; /* iOS에서 부드러운 스크롤링을 위한 설정 */
+    }
+
+    /* 각 페이지 스타일 */
+    .slider-page {
+      flex: 0 0 100%; /* 동일한 너비를 가지도록 설정 */
+      scroll-snap-align: start; /* 페이지 스냅 정렬 */
+      padding: 20px; /* 내용 여백 */
+    }
+
+    /* 페이지 컨테이너 너비 설정 */
+    .slider-container {
+      width: 300%; /* 페이지 수에 따라 조절 */
+    }
+  </style>
 </head>
 <body>
-<p><strong>아래 카카오톡 아이콘을 눌러 전송하세요</strong> By. Blackcats4567</p>
-<a id="kakao-link-btn" href="javascript:sendLink()">
-  <img
-    src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
-  />
-</a>
-<script type="text/javascript">
- Kakao.init('3fac38282cadb82fe8c06cc7cf17dfb5');
-  function sendLink() {
-    // 강제 오류 메시지를 포함한 메시지 내용 생성
-    var message = {
-        title: '강제 오류 메시지입니다.',
-        description: '강제 오류 메시지를 포함한 메시지를 보냅니다.',
-        imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDAzMjBfMjMx%2FMDAxNTg0NjYwMDEzNDQ5.ghAIcj2ask2XZT8urGussU9Vy7wqgbkvKL6qxc3_vcYg.2ymZTkf-djxOAH-3xeKN1aTBzAcz-GZ0SeleNZsBAt8g.JPEG%2FKakaoTalk_20200319_100758032_01.jpg&type=sc960_832',
-        link: {
-            mobileWebUrl: 'https:youtube.com',
-            webUrl: 'https:youtube.com',
+  <div class="slider-container">
+    <!-- 첫 번째 페이지 -->
+    <div class="slider-page">
+      <!-- 페이지 내용 -->
+      <p><strong>첫 번째 페이지</strong> By. Blackcats4567</p>
+      <a id="kakao-link-btn1" href="javascript:sendLink(1)">
+        <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
+      </a>
+    </div>
+    <!-- 두 번째 페이지 -->
+    <div class="slider-page">
+      <!-- 페이지 내용 -->
+      <p><strong>두 번째 페이지</strong> By. Blackcats4567</p>
+      <a id="kakao-link-btn2" href="javascript:sendLink(2)">
+        <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
+      </a>
+    </div>
+    <!-- 세 번째 페이지 -->
+    <div class="slider-page">
+      <!-- 페이지 내용 -->
+      <p><strong>세 번째 페이지</strong> By. Blackcats4567</p>
+      <a id="kakao-link-btn3" href="javascript:sendLink(3)">
+        <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
+      </a>
+    </div>
+  </div>
+
+  <script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+  <script>
+    Kakao.init('3fac38282cadb82fe8c06cc7cf17dfb5');
+
+    function sendLink(page) {
+      Kakao.Link.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: '페이지 ' + page,
+          description: '카카오톡 버튼있는 메시지 전송하기',
+          imageUrl: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDAzMjBfMjMx%2FMDAxNTg0NjYwMDEzNDQ5.ghAIcj2ask2XZT8urGussU9Vy7wqgbkvKL6qxc3_vcYg.2ymZTkf-djxOAH-3xeKN1aTBzAcz-GZ0SeleNZsBAt8g.JPEG%2FKakaoTalk_20200319_100758032_01.jpg&type=sc960_832',
+          link: {
+            mobileWebUrl: 'https://youtube.com',
+            webUrl: 'https://youtube.com',
+          },
         },
         social: {
-            likeCount: 4, //99999가 최대입니다
-            commentCount: 5, //99999가 최대입니다
-            sharedCount: 2, //99999가 최대입니다
+          likeCount: 4, //99999가 최대입니다
+          commentCount: 5, //99999가 최대입니다
+          sharedCount: 2, //99999가 최대입니다
         },
         buttons: [
-            {
-                title: '버튼1 글자',
-                link: {
-                    mobileWebUrl: 'https:youtube.com',
-                    webUrl: 'https:youtube.com',
-                },
+          {
+            title: '카카오 링크로 이동',
+            link: {
+              mobileWebUrl: 'https://youtube.com',
+              webUrl: 'https://youtube.com',
             },
+          },
         ],
-        os: [
-            {
-                "t": 5,
-                "ct": "강제오류 메세지",
-                "jct": "[{\"type\":\"text\",\"text\":\"강제오류 메세지\"}]"
-            }
-        ]
-    };
-
-    // Kakao.Link.sendDefault에 message를 전달합니다.
-    Kakao.Link.sendDefault(message);
-}
-</script>
-<!-- www.blackcats4567.com -->
-<!-- 이미지/버튼 클릭 시gs 주소는 Kakao Developers의 리케이션 > 플랫폼 > Web에 넣어야 클릭했을때 성공적으로 표시됩니다 -->
+      });
+    }
+  </script>
 </body>
 </html>
