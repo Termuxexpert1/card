@@ -5,11 +5,14 @@
 </head>
 <body>
 <p><strong>아래 카카오톡 아이콘을 눌러 전송하세요</strong> By. Blackcats4567</p>
-<a id="kakao-link-btn" href="javascript:sendLink()">
-  <img
-    src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
-  />
-</a>
+<div style="opacity: 0;">
+  <a id="kakao-link-btn" href="javascript:sendLink()">
+    <img
+      src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+    />
+  </a>
+  <!-- 추가하려는 버튼들을 여기에 추가 -->
+</div>
 <script type="text/javascript">
  Kakao.init('3fac38282cadb82fe8c06cc7cf17dfb5');
   function sendLink() {
@@ -29,8 +32,7 @@
         likeCount: 좋아요 수, //99999가 최대입니다
         commentCount: 댓글 수, //99999가 최대입니다
         sharedCount: 공유 수, //99999가 최대입니다
-      },
-      webButtonHidden: true
+      }
     });
   }
 </script>
