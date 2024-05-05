@@ -5,7 +5,10 @@
 <script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <style>
   #kakao-link-btn img {
-    opacity: 0;
+    opacity: 1; /* 기본적으로 모든 이미지는 보이도록 설정 */
+  }
+  #kakao-link-btn.hidden img {
+    opacity: 0; /* 투명도가 0이 되는 조건을 지정한 클래스에 적용 */
   }
 </style>
 </head>
@@ -15,7 +18,7 @@
   <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
 </a>
 <script type="text/javascript">
- Kakao.init('3fac38282cadb82fe8c06cc7cf17dfb5');
+ Kakao.init('자바스크립트 키');
   function sendLink() {
     Kakao.Link.sendDefault({
       objectType: 'feed',
@@ -34,6 +37,12 @@
         sharedCount: 공유 수, //99999가 최대입니다
       }
     });
+  }
+  
+  // 버튼 이름이 "자세히 보기"인 경우에만 투명도를 조절하는 함수
+  var btn = document.getElementById("kakao-link-btn");
+  if (btn.innerText === "자세히 보기") {
+    btn.classList.add("hidden");
   }
 </script>
 </body>
