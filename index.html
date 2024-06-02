@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
-<meta charset="UTF-8">
 <title>카카오톡 버튼있는 메시지 전송하기</title>
 <script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-<style>
-  .content-container {
-    display: flex;
-    align-items: center;
-    margin-top: 20px; /* 여백을 추가하여 텍스트와 기존 이미지가 겹치지 않게 합니다 */
-  }
-  .content-container img {
-    margin-left: 10px;
-  }
-  .content-text {
-    font-weight: bold;
-  }
-</style>
 </head>
 <body>
 <p><strong>아래 카카오톡 아이콘을 눌러 전송하세요</strong> By. Blackcats4567</p>
@@ -26,17 +11,17 @@
   />
 </a>
 <script type="text/javascript">
-  Kakao.init('3fac38282cadb82fe8c06cc7cf17dfb5');
+ Kakao.init('3fac38282cadb82fe8c06cc7cf17dfb5');
   function sendLink() {
     Kakao.Link.sendDefault({
       objectType: 'feed',
       content: {
-        title: '??ㅇㅇ.',
+        title: '??님이 이모티콘을 선물했습니다.',
         description: '볼빨간 호섭이4',
         imageUrl: 'https://item.kakaocdn.net/do/0defda27434f6f7c95e0ee2961b92ef8617ea012db208c18f6e83b1a90a7baa7',
-        link: {
-          mobileWebUrl: 'http://usuwhwh.kro.kr',
-          webUrl: 'http://usuwhwh.kro.kr',
+          link: {
+        mobileWebUrl: 'http://usuwhwh.kro.kr',
+        webUrl: 'http://usuwhwh.kro.kr',
         },
       },
       buttons: [
@@ -53,9 +38,5 @@
 </script>
 <!-- www.blackcats4567.com -->
 <!-- 이미지/버튼 클릭 시 주소는 Kakao Developers의 애플리케이션 > 플랫폼 > Web에 넣어야 클릭했을때 성공적으로 표시됩니다 -->
-<div class="content-container">
-  <span class="content-text">??ㅇㅇ.</span>
-  <img src="https://item.kakaocdn.net/do/0defda27434f6f7c95e0ee2961b92ef8617ea012db208c18f6e83b1a90a7baa7" alt="추가 이미지">
-</div>
-</body>
+  </body>
 </html>
